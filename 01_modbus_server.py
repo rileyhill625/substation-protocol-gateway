@@ -3,11 +3,10 @@
 ====================
 Simulates a PROTECTIVE RELAY that serves live data over Modbus TCP.
 
-Think of this as the "security guard": it holds values (current, voltage,
+EX: The "security guard" watching what's going on: it holds values (current, voltage,
 breaker status) in numbered slots and waits for a client to ask for them.
 
 In a real substation this role is played by an actual SEL/GE/ABB relay.
-We build it in Python so we understand what that relay is doing underneath.
 """
 
 import asyncio
@@ -23,7 +22,7 @@ from pymodbus.server import StartAsyncTcpServer
 # StartAsyncTcpServer = the function that actually opens a network port and listens.
 
 # --- Define the relay's data -------------------------------------------------
-# Modbus storage comes in types. We use two:
+# Modbus storage comes in types. Here we use two:
 #   COILS  = single on/off bits   (e.g. breaker open/closed)
 #   HOLDING REGISTERS = 16-bit whole numbers (e.g. current, voltage)
 #
@@ -33,7 +32,7 @@ from pymodbus.server import StartAsyncTcpServer
 breaker_coil = ModbusSequentialDataBlock(1, [1, 0, 0, 0, 0])
 #   coil 1 = 1  -> breaker CLOSED (in service). 0 would mean OPEN (tripped).
 
-relay_registers = ModbusSequentialDataBlock(1, [600, 12470, 0, 0, 0])
+relay_registers = ModbusSequentialDataBlock(1, [395, 12470, 0, 0, 0])
 #   register 1 = 395   -> current = 39.5 A (stored x10)
 #   register 2 = 12470 -> voltage = 12470 V
 

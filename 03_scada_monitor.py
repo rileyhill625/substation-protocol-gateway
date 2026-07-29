@@ -5,7 +5,7 @@ The SCADA MONITOR: connect to the relay and poll it every second, forever,
 applying PROTECTION LOGIC to every reading (alarm on overcurrent or trip).
 
 This is the "supervisor who calls every minute AND has rules." It is the
-control-room side of the system and the most job-relevant part of the project.
+control-room side of the system
 
 In the real world, THIS is closest to what you configure: a SCADA master
 (like Ignition) polling a relay and raising alarms on thresholds.

@@ -2,7 +2,7 @@
 02_modbus_client.py
 ===================
 A simple ONE-SHOT Modbus client: connect to the relay, read its values once,
-print them, disconnect. This is the "supervisor makes a single phone call."
+print them, disconnect. This is the "supervisor asks for security gaurd's data."
 
 This proves the round-trip works. The continuous version is in 03.
 """
